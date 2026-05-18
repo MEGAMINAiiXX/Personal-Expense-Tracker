@@ -62,59 +62,6 @@ Swagger UI: **http://localhost:8000/docs**
 
 ---
 
-## Ручной запуск (без Docker)
-
-### 1. PostgreSQL
-
-Создай базу данных:
-
-```sql
-CREATE DATABASE finance_tracker;
-```
-
-### 2. Backend
-
-```bash
-cd backend
-
-# Создай виртуальное окружение
-python -m venv venv
-source venv/bin/activate      # Linux/Mac
-# venv\Scripts\activate       # Windows
-
-# Установи зависимости
-pip install -r requirements.txt
-
-# Создай файл .env
-cp .env.example .env
-# Отредактируй DATABASE_URL если нужно
-
-# Заполни БД демо-данными
-python seed.py
-
-# Запусти сервер
-uvicorn main:app --reload --port 8000
-```
-
-### 3. Frontend
-
-```bash
-cd frontend
-
-# Установи зависимости
-npm install
-
-# Создай .env
-cp .env.example .env
-
-# Запусти dev-сервер
-npm run dev
-```
-
-Открой: **http://localhost:3000**
-
----
-
 ## API Endpoints
 
 | Method | Path | Описание |
@@ -179,16 +126,5 @@ npm run dev
 
 ---
 
-## Расширение проекта
-
-Идеи для дальнейшего развития:
-- **JWT авторизация** — несколько пользователей (`fastapi-users` или `python-jose`)
-- **Бюджеты** — лимиты на категорию в месяц с уведомлениями
-- **Повторяющиеся транзакции** — ежемесячные платежи
-- **Мобильное приложение** — API уже готов, подключи React Native
-- **Экспорт PDF** — используй `reportlab` или `weasyprint` на бэкенде
-- **Telegram бот** — добавляй транзакции через бота
-
----
 
 *Fintrak v1.0.0 · FastAPI + React + PostgreSQL*
